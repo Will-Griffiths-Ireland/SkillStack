@@ -27,6 +27,7 @@ const request = learnositySdk.init(  // Set Learnosity init options
         }
     })
 
+    request = JSON.stringify(request);
 
 let renderPage = `
 <!DOCTYPE html>
