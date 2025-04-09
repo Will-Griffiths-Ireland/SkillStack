@@ -22,6 +22,8 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+const CONSUMER_KEY = process.env.CONSUMER_KEY;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Consumer Key - ${CONSUMER_KEY}`);
 });
