@@ -14,9 +14,9 @@ const request = learnositySdk.init(  // Set Learnosity init options
     },
     process.env.CONSUMER_SECRET,
     {
-        user_id: generateUUID(),
+        user_id: uuid.v4(),
         activity_template_id: 'quickstart_examples_activity_template_001',
-        session_id: generateUUID(),
+        session_id: uuid.v4(),
         activity_id: "quickstart_examples_activity_001",
         rendering_type: 'assess',
         type: 'submit_practice',
