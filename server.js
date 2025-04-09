@@ -4,7 +4,7 @@ const path = require('path');
 
 const server = http.createServer((req, res) => {
   let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url + '.html');
-
+  console.log(`fielpath requested -  ${fielpath}`);
   fs.readFile(filePath, (err, content) => {
     if (err) {
       if (err.code === 'ENOENT') {
