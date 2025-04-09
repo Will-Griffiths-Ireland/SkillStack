@@ -1,5 +1,8 @@
 {
   "scripts": {
     "start": "node1.js"
+  },
+  "dependencies": {
+    "learnosity-sdk-nodejs": "github:Learnosity/learnosity-sdk-nodejs"
   }
 }
