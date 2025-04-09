@@ -1,3 +1,5 @@
+const uuid = require('uuid');  // Load the UUID library
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
