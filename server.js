@@ -1,5 +1,5 @@
 const uuid = require('uuid');  // Load the UUID library
-const Learnosity = require('node_modules/learnosity-sdk-nodejs/index'); // Learnosity SDK constructor
+const Learnosity = require('./node_modules/learnosity-sdk-nodejs/index.js'); // Learnosity SDK constructor
 
 const http = require('http');
 const fs = require('fs');
