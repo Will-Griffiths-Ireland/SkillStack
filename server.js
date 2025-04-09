@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const learnositySdk = new Learnosity(); // Instantiate the SDK
-const request = learnositySdk.init(  // Set Learnosity init options
+let request = learnositySdk.init(  // Set Learnosity init options
     'items',                              // Select Items API
     {
         consumer_key: process.env.CONSUMER_KEY,
