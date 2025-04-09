@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "start": "node1.js"
+    "start": "server.js"
   },
   "dependencies": {
-    "learnosity-sdk-nodejs": "github:Learnosity/learnosity-sdk-nodejs"
+    "learnosity-sdk-nodejs": "github:Learnosity/learnosity-sdk-nodejs",
+    "uuid": "^11.1.0"
   }
 }
