@@ -4,6 +4,10 @@ const Learnosity = require('./node_modules/learnosity-sdk-nodejs/index.js'); // 
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
+
+const hostname = os.hostname();
+
 
 const learnositySdk = new Learnosity(); // Instantiate the SDK
 let request = learnositySdk.init(  // Set Learnosity init options
@@ -79,4 +83,5 @@ const CONSUMER_KEY = process.env.CONSUMER_KEY;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Consumer Key - ${CONSUMER_KEY}`);
+  console.log(`Hostname: ${hostname}`);
 });
