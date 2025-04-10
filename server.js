@@ -14,7 +14,7 @@ let request = learnositySdk.init(  // Set Learnosity init options
     'items',                              // Select Items API
     {
         consumer_key: process.env.CONSUMER_KEY,
-        domain: hostname,
+        domain: "skillstack-81wm.onrender.com",
     },
     process.env.CONSUMER_SECRET,
     {
@@ -32,6 +32,7 @@ let request = learnositySdk.init(  // Set Learnosity init options
     })
 
     request = JSON.stringify(request);
+    console.log( request );
 
 let renderPage = `
 <!DOCTYPE html>
