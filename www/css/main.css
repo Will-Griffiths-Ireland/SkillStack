@@ -68,6 +68,9 @@ li {
 }
 
 
+html{
+    overflow: hidden;
+}
 
 body {
 
