@@ -1,9 +1,33 @@
+html {
+    overflow: hidden;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+body * {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 /* Hide the assessment players table of content */
 .lrn-region.lrn-right-region {
     display: none !important;
 }
 
-/* Hide buger menu */
+/* Hide burger menu */
 #learnosity_assess>div>div.lrn-region-group.lrn-group-top {
     display: none !important;
 }
@@ -32,7 +56,8 @@ label {
     font-weight: 400 !important;
     font-style: normal !important;
     font-size: 2rem !important;
-    background-color: rgba(0, 0, 0, 0) !important;
+    background-color: transparent !important;
+    background: transparent !important;
     min-height: 0 !important;
     overflow: show !important;
 }
@@ -53,7 +78,14 @@ label {
 }
 
 #learnosity_assess {
+    font-family: "Press Start 2P", system-ui !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: 2rem !important;
+    background-color: transparent !important;
+    background: transparent !important;
     min-height: 0 !important;
+    overflow: show !important;
 }
 
 
@@ -68,31 +100,7 @@ li {
 }
 
 
-html{
-    overflow: hidden;
-}
 
-body {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: flex-start;
-    /* Align items from the top */
-    min-height: 100vh;
-    margin: 0;
-    padding-top: 2em;
-    /* Adds spacing from the top */
-    text-align: center;
-    overflow: hidden;
-}
-
-body * {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
 
 @keyframes fullFlashGreen {
     0% {
@@ -177,16 +185,14 @@ body * {
     transform: scale(0);
     opacity: 0;
     transform-origin: center;
-    max-width: 25vh;
-    max-height: 25vh;
+    max-width: 80vw;
     align-self: center;
     justify-content: center;
-    /* Rounded corners */
+    border: .5rem solid;
+    border-color: rgb(121, 121, 121);
+    /* background: radial-gradient(circle, #e6e3e3 0%, #ffffff 100%); */
     border-radius: 1rem;
-    /* Top-right shadow */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
-    /* Navy blue border */
-    border: .5rem solid #001f3f;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 
 .animated-box.expand {
@@ -195,15 +201,99 @@ body * {
 
 @keyframes spinAndShrink {
     0% {
-      transform: rotate(0deg) scale(1);
-      opacity: 1;
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
     }
+
     100% {
-      transform: rotate(720deg) scale(0);
-      opacity: 0;
+        transform: rotate(720deg) scale(0);
+        opacity: 0;
     }
-  }
-  
-  .spin-disappear {
+}
+
+.spin-disappear {
     animation: spinAndShrink 1s ease-out forwards;
-  }
+}
+
+@keyframes dropBounce {
+    0% {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateY(-10%);
+    }
+
+    85% {
+        transform: translateY(0);
+    }
+
+    95% {
+        transform: translateY(-5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.drop-in {
+    animation: dropBounce 1.5s ease-out forwards;
+}
+
+#timer {
+    font-size: clamp(1rem, 2vw, 2rem);
+    position: fixed;
+    top: 5%;
+    left: 5%;
+}
+
+
+#score {
+    font-size: clamp(1rem, 2vw, 2rem);
+    position: fixed;
+    top: 5%;
+    right: 5%;
+}
+
+.pulsing {
+    animation: pulse .5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#playArea {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    /* vertical centering */
+    justify-content: center;
+    /* horizontal centering */
+
+}
+
+button {
+    padding: 1rem;
+    border-radius: .5rem;
+}

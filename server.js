@@ -118,7 +118,7 @@ let gamepage = `
 </head>
 <body>
 <canvas id="burstCanvas"></canvas>
-  <img src="/img/logo.gif" alt="Centered Image" style="max-width: 15%; height: auto;">
+  <img class="drop-in" src="/img/logo.gif" alt="Centered Image" style="max-width: 15%; height: auto;">
   <p>Sum Rush, powered by Learnosity. Race others to solve math questions fast and flawlessly. Will you top the leaderboard?</p>
   <br>
   <form id="userForm" method="POST" action="/add-user">
@@ -126,10 +126,14 @@ let gamepage = `
     <button type="submit">Add User</button>
   </form>
   <br>
-   <button onclick="loadAssess()">Show Assessment</button>
+   <button id="start" onclick="loadAssess()">Start</button>
    <br>
+   <div id="timer">Time : 00:00:000</div>
+   <div id="score">Score : 0</div>
+   <div id="playArea">
   <div class="animated-box">
   <div id="learnosity_assess"></div>
+  </div>
   </div>
 </body>
 <script>   
