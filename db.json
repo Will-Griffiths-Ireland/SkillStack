@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "d423acc2-fb65-4af3-b8b7-df2752f63633",
+      "name": "Panda"
+    }
+  ],
+  "highScores": [
+    {
+      "name": "Panda",
+      "score": 39
+    }
+  ]
+}

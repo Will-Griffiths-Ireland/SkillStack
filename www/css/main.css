@@ -1,0 +1,185 @@
+/* Hide the assessment players table of content */
+.lrn-region.lrn-right-region {
+    display: none !important;
+}
+
+/* Hide buger menu */
+#learnosity_assess>div>div.lrn-region-group.lrn-group-top {
+    display: none !important;
+}
+
+/* Hide item progress bar */
+#learnosity_assess > div > div.lrn-region-group.lrn-group-middle > div.lrn-region.items.lrn-items-region.has-right-region > div > div.progress.pos-middle
+{
+    display: none !important;
+}
+
+.lrn-label * {
+    padding: 0rem !important;
+}
+
+label  {
+    padding: 0rem !important;
+}
+
+.lrn-mcq-option {
+    padding: 1rem !important;
+    font-size: 3rem !important;
+}
+
+#learnosity_assess * {
+    
+    font-family: "Press Start 2P", system-ui !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+    font-size: 2rem !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    min-height: 0 !important;
+    overflow: show !important;
+  }
+
+  #burstCanvas {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999; /* Ensure it's above other elements */
+  }
+
+  #learnosity_assess input {
+    display: none !important;
+  }
+
+  #learnosity_assess {
+    min-height: 0 !important;
+  }
+  
+
+  #learnosity_assess > div > div.lrn-assess-dialogs.dialogs{
+    display: none !important;
+  }
+
+
+
+  li {
+    list-style-type: none !important;
+  }
+
+  
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Center horizontally */
+    justify-content: flex-start; /* Align items from the top */
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 2em;       /* Adds spacing from the top */
+    text-align: center;
+}
+
+body * {
+    font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes fullFlashGreen {
+    0% {
+      color: green;
+      background-color: green;
+      border-color: green;
+      filter: hue-rotate(0deg) brightness(1) saturate(2);
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+  
+  .flash-green {
+    animation: fullFlashGreen 1s ease-out forwards;
+    color: green !important;
+    background-color: green !important;
+    border-color: green !important;
+  }
+  
+  .flash-green * {
+    color: green !important;
+    background-color: green !important;
+    border-color: green !important;
+  }
+
+  @keyframes fullFlashRed {
+    0% {
+      color: red;
+      background-color: red;
+      border-color: red;
+      filter: hue-rotate(0deg) brightness(1) saturate(2);
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+  
+  .flash-red {
+    animation: fullFlashGreen 1s ease-out forwards;
+    color: red !important;
+    background-color: red !important;
+    border-color: red !important;
+  }
+  
+  .flash-red * {
+    color: red !important;
+    background-color: red !important;
+    border-color: red !important;
+  }
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(5);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animated-box {
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: center;
+    max-width: 25vh;
+    max-height: 25vh;
+    align-self: center;
+    justify-content: center;
+    /* Rounded corners */
+    border-radius: 1rem;
+    /* Top-right shadow */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    /* Navy blue border */
+    border: 1rem solid #001f3f;
+}
+
+.animated-box.expand {
+    animation: bounceIn 800ms ease-out forwards;
+}

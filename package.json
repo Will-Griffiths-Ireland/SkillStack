@@ -1,9 +1,12 @@
 {
+  "type": "module",
   "scripts": {
     "start": "server.js"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "learnosity-sdk-nodejs": "github:Learnosity/learnosity-sdk-nodejs",
+    "lowdb": "^7.0.1",
     "uuid": "^11.1.0"
   }
 }
