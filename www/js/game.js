@@ -9,6 +9,8 @@ function loadAssess() {
             console.log('ready');
             document.querySelector('.animated-box').classList.add('expand');
 
+            // Since we will only have mcq then as soonas the user selects a response we will trigger validation
+            // and display an animation based on response correctness. We then move to next item or submit
             itemsApp.on('item:attemptedstatus:change', function (e) {
                 const box = document.querySelector('.animated-box');
 
@@ -18,11 +20,11 @@ function loadAssess() {
                 {
                     console.log("Correct!!!");
                     createParticles(mouse_x, mouse_y);
-                    animation_type ="flash-green"
+                    animation_type ="spin-disappear"
                 }
                 else{
                     console.log("Incorrect");
-                    animation_type ="flash-red"
+                    animation_type ="spin-disappear"
                 }
             
                 // Remove expand if it's there
@@ -47,6 +49,14 @@ function loadAssess() {
                         }, 100); // small delay to avoid stacking animations
                     } else {
                         console.log("We are on the final item and will submit");
+                        //fireworks baby!!
+                        for (let i = 0; i < 100; i++) {
+                            setTimeout(() => {
+                              const mouse_x = Math.random() * window.innerWidth;
+                              const mouse_y = Math.random() * window.innerHeight;
+                              createParticles(mouse_x, mouse_y);
+                            }, i * 50); // 50ms delay between each burst
+                          }
                     }
             
                 }, 1000); // delay to match animation duration of .flash-green

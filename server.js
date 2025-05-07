@@ -78,7 +78,7 @@ let request = learnositySdk.init(  // Set Learnosity init options
   CONSUMER_SECRET,
   {
     user_id: uuidv4(),
-    activity_template_id: '726d0b2e-bcb9-4dde-8f79-d7fafd5e7f1d',
+    activity_template_id: 'ea40d305-5706-4744-bcaa-e95ed9f35184',
     session_id: uuidv4(),
     activity_id: "sum_rush_demo_testing",
     rendering_type: 'assess',
