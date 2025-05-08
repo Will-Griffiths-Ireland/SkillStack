@@ -78,10 +78,14 @@ label {
     font-family: "Press Start 2P", system-ui !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    font-size: 2rem !important;
+    font-size: clamp(2rem, 2vw, 4rem);
     background-color: transparent !important;
     background: transparent !important;
     border-left: none;
+}
+
+.lrn_stimulus * {
+    font-size: clamp(2rem, 2vw, 5rem) !important;
 }
 
 #burstCanvas {
@@ -140,8 +144,8 @@ li {
     opacity: 0;
     transform-origin: center;
     height: 90%;
-    min-width: 50%;
-    max-width: 50vh;
+    min-width: 25%;
+    max-width: 35%;
     align-self: center;
     border: .5rem solid;
     border-color: rgb(121, 121, 121);
