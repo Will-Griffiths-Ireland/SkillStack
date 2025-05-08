@@ -16,7 +16,7 @@ body {
 
 body * {
     font-family: "Press Start 2P", system-ui;
-    font-size: 2rem;
+    font-size: clamp(1rem, 2vw, 2rem);
     font-weight: 400;
     font-style: normal;
 }
@@ -44,13 +44,36 @@ body * {
 label {
     padding: 0rem !important;
 }
-
-.lrn-mcq-option {
-    padding: 1rem !important;
-    font-size: 3rem !important;
+.lrn_widget.lrn_mcq.lrn_mcqgroup 
+{
+    border: none !important;
+    border-left: none !important;
 }
 
-#learnosity_assess * {
+.lrn_widget.lrn_mcq .lrn_mcqgroup .lrn-mcq-option {
+    border-left: none !important;
+  }
+
+.lrn_contentWrapper {
+    
+    min-width:  0 !important;
+    margin: 1rem;
+    padding: 1rem !important;
+    font-size: 3rem !important;
+    border: 4px solid rgb(121, 121, 121) !important;
+    border-radius: .5rem !important;
+    padding: 1rem !important;
+    margin: 1rem !important;
+}
+
+.lrn_mcqgroup * {
+    display: block !important;
+    overflow: hidden !important;
+
+}
+
+
+#learnosity_assess, #learnosity_assess * {
 
     font-family: "Press Start 2P", system-ui !important;
     font-weight: 400 !important;
@@ -58,8 +81,7 @@ label {
     font-size: 2rem !important;
     background-color: transparent !important;
     background: transparent !important;
-    min-height: 0 !important;
-    overflow: show !important;
+    border-left: none;
 }
 
 #burstCanvas {
@@ -77,17 +99,9 @@ label {
     display: none !important;
 }
 
-#learnosity_assess {
-    font-family: "Press Start 2P", system-ui !important;
-    font-weight: 400 !important;
-    font-style: normal !important;
-    font-size: 2rem !important;
-    background-color: transparent !important;
-    background: transparent !important;
-    min-height: 0 !important;
-    overflow: show !important;
+.lrn-possible-answer * {
+    width: auto !important
 }
-
 
 #learnosity_assess>div>div.lrn-assess-dialogs.dialogs {
     display: none !important;
@@ -99,66 +113,6 @@ li {
     list-style-type: none !important;
 }
 
-
-
-
-@keyframes fullFlashGreen {
-    0% {
-        color: green;
-        background-color: green;
-        border-color: green;
-        filter: hue-rotate(0deg) brightness(1) saturate(2);
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-}
-
-.flash-green {
-    animation: fullFlashGreen 1s ease-out forwards;
-    color: green !important;
-    background-color: green !important;
-    border-color: green !important;
-}
-
-.flash-green * {
-    color: green !important;
-    background-color: green !important;
-    border-color: green !important;
-}
-
-@keyframes fullFlashRed {
-    0% {
-        color: red;
-        background-color: red;
-        border-color: red;
-        filter: hue-rotate(0deg) brightness(1) saturate(2);
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-}
-
-.flash-red {
-    animation: fullFlashGreen 1s ease-out forwards;
-    color: red !important;
-    background-color: red !important;
-    border-color: red !important;
-}
-
-.flash-red * {
-    color: red !important;
-    background-color: red !important;
-    border-color: red !important;
-}
 
 @keyframes bounceIn {
     0% {
@@ -185,15 +139,33 @@ li {
     transform: scale(0);
     opacity: 0;
     transform-origin: center;
-    max-width: 80vw;
+    height: 90%;
+    min-width: 50%;
+    max-width: 50vh;
     align-self: center;
-    justify-content: center;
     border: .5rem solid;
     border-color: rgb(121, 121, 121);
     /* background: radial-gradient(circle, #e6e3e3 0%, #ffffff 100%); */
     border-radius: 1rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
+
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .animated-box {
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: center;
+        height: 90%;
+        min-width: 80%;
+        max-width: 90%;
+        align-self: center;
+        border: .5rem solid;
+        border-color: rgb(121, 121, 121);
+        /* background: radial-gradient(circle, #e6e3e3 0%, #ffffff 100%); */
+        border-radius: 1rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+    }
+  }
 
 .animated-box.expand {
     animation: bounceIn 800ms ease-out forwards;
@@ -285,6 +257,7 @@ li {
 
 #playArea {
     flex-grow: 1;
+    width: 100%;
     display: flex;
     align-items: center;
     /* vertical centering */
@@ -297,3 +270,23 @@ button {
     padding: 1rem;
     border-radius: .5rem;
 }
+
+@keyframes flash-grow-green {
+    0% {
+      transform: scale(1);
+      color: inherit;
+    }
+    50% {
+      transform: scale(1.2);
+      color: green;
+    }
+    100% {
+      transform: scale(1);
+      color: inherit;
+    }
+  }
+  
+  .flash-score {
+    display: inline-block; /* Needed for transform */
+    animation: flash-grow-green 1s ease-in-out;
+  }

@@ -29,6 +29,9 @@ function loadAssess() {
                     console.log("Correct!!!");
                     score += 1000;
                     scoreLabel.textContent = "Score : " + score;
+                    scoreLabel.classList.remove('flash-score'); // reset
+                    void scoreLabel.offsetWidth; // force reflow
+                    scoreLabel.classList.add('flash-score'); // reapply
                     createParticles(mouse_x, mouse_y);
                     animation_type = "spin-disappear"
                 }
