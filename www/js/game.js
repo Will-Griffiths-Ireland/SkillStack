@@ -27,6 +27,21 @@ function loadAssess() {
 
                 if (itemsApp.question(itemsApp.getCurrentItem().questions[0].response_id).isValid()) {
                     console.log("Correct!!!");
+                    
+                    //display a score on click/tap
+                    const score_click = document.createElement('div');
+                    score_click.className = 'score-click';
+                    score_click.textContent = '+1000';
+                    score_click.style.left = `${mouse_x}px`;
+                    score_click.style.top = `${mouse_y}px`;
+
+                    document.body.appendChild(score_click);
+
+                    // Remove the element after the animation
+                    score_click.addEventListener('animationend', () => {
+                        score_click.remove();
+                    });
+                    
                     score += 1000;
                     scoreLabel.textContent = "Score : " + score;
                     scoreLabel.classList.remove('flash-score'); // reset
@@ -34,6 +49,8 @@ function loadAssess() {
                     scoreLabel.classList.add('flash-score'); // reapply
                     createParticles(mouse_x, mouse_y);
                     animation_type = "spin-disappear"
+                    
+                    
                 }
                 else {
                     console.log("Incorrect");
@@ -116,7 +133,7 @@ function animate() {
     particles.forEach((p, index) => {
         p.x += p.velocityX;
         p.y += p.velocityY;
-        p.alpha -= 0.01;
+        p.alpha -= 0.005;
         if (p.alpha <= 0) {
             particles.splice(index, 1);
         } else {

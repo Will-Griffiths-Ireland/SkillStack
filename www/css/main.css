@@ -14,6 +14,7 @@ body {
     overflow: hidden;
 }
 
+
 body * {
     font-family: "Press Start 2P", system-ui;
     font-size: clamp(1rem, 2vw, 2rem);
@@ -293,4 +294,27 @@ button {
   .flash-score {
     display: inline-block; /* Needed for transform */
     animation: flash-grow-green 1s ease-in-out;
+  }
+
+  .score-click {
+    position: absolute;
+    color: rgb(74, 160, 21);
+    font-size: 2rem;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    animation: popFade 2s forwards;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+  }
+
+  @keyframes popFade {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -100%) scale(1.5);
+    }
   }
