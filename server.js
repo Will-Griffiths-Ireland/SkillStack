@@ -114,17 +114,17 @@ let gamepage = `
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script src="//items.learnosity.com/?latest-lts"></script>
-  <script src="https://grading.learnosity.com"></script>
 </head>
 <body>
 <canvas id="burstCanvas"></canvas>
-  <img class="drop-in" src="/img/logo.gif" alt="Centered Image" style="max-width: 15%; height: auto;">
+  <img class="drop-in" src="/img/logo_trans.png" alt="Centered Image" style="max-width: 15%; height: auto;">
   <p>Sum Rush, powered by Learnosity. Race others to solve math questions fast and flawlessly. Will you top the leaderboard?</p>
   <br>
   <form id="userForm" method="POST" action="/add-user">
     <input type="text" name="username" id="username" maxlength="20" placeholder="Enter your name" required />
     <button type="submit">Add User</button>
   </form>
+</div>
   <br>
    <button id="start" onclick="loadAssess()">Start</button>
    <br>

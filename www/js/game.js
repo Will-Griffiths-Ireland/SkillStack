@@ -1,8 +1,10 @@
 let itemsApp = "";
 let score = 0;
+let global_time = "";
 
 let mouse_x = 1;
 let mouse_y = 1;
+
 
 function loadAssess() {
     const startButton = document.getElementById("start");
@@ -27,7 +29,6 @@ function loadAssess() {
 
                 if (itemsApp.question(itemsApp.getCurrentItem().questions[0].response_id).isValid()) {
                     console.log("Correct!!!");
-                    
                     //display a score on click/tap
                     const score_click = document.createElement('div');
                     score_click.className = 'score-click';
@@ -41,7 +42,7 @@ function loadAssess() {
                     score_click.addEventListener('animationend', () => {
                         score_click.remove();
                     });
-                    
+
                     score += 1000;
                     scoreLabel.textContent = "Score : " + score;
                     scoreLabel.classList.remove('flash-score'); // reset
@@ -49,8 +50,8 @@ function loadAssess() {
                     scoreLabel.classList.add('flash-score'); // reapply
                     createParticles(mouse_x, mouse_y);
                     animation_type = "spin-disappear"
-                    
-                    
+
+
                 }
                 else {
                     console.log("Incorrect");
@@ -80,6 +81,8 @@ function loadAssess() {
                     } else {
                         stopTimer();
                         console.log("We are on the final item and will submit");
+                        showModal(score, global_time);
+
                         //fireworks baby!!
                         for (let i = 0; i < 100; i++) {
                             setTimeout(() => {
@@ -133,7 +136,7 @@ function animate() {
     particles.forEach((p, index) => {
         p.x += p.velocityX;
         p.y += p.velocityY;
-        p.alpha -= 0.005;
+        p.alpha -= 0.008;
         if (p.alpha <= 0) {
             particles.splice(index, 1);
         } else {
@@ -170,12 +173,11 @@ function updateTimer() {
     const minutes = Math.floor(elapsed / 60000);
     const seconds = Math.floor((elapsed % 60000) / 1000);
     const milliseconds = elapsed % 1000;
-
-    timerEl.textContent = "Time : " +
-        String(minutes).padStart(2, '0') + ':' +
+    global_time = String(minutes).padStart(2, '0') + ':' +
         String(seconds).padStart(2, '0') + ':' +
         String(milliseconds).padStart(3, '0');
 
+    timerEl.textContent = "Time : " + global_time
     animationFrameId = requestAnimationFrame(updateTimer);
 }
 
@@ -192,3 +194,21 @@ function stopTimer() {
     cancelAnimationFrame(animationFrameId);
 }
 
+function showModal(score, time) {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+
+    // Create modal box
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+      <h1>Congratulations!</h1>
+      <p>Time: ${time}</p>
+      <p>Score: ${score}</p>
+      <button onclick="this.closest('.modal-overlay').remove()">Close</button>
+    `;
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+}
