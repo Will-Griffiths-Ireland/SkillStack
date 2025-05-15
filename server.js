@@ -69,7 +69,9 @@ const CONSUMER_SECRET = process.env.CONSUMER_SECRET
 
 const learnositySdk = new Learnosity(); // Instantiate the SDK
 
-let request = learnositySdk.init(  // Set Learnosity init options
+function showGamepage(){
+
+  let request = learnositySdk.init(  // Set Learnosity init options
   'items',                              // Select Items API
   {
     consumer_key: CONSUMER_KEY,
@@ -145,6 +147,12 @@ ${scriptContent}
 </html>
 `
 
+return gamepage;
+
+}
+
+
+
 
 const server = http.createServer((req, res) => {
 
@@ -193,7 +201,7 @@ const server = http.createServer((req, res) => {
   if (req.url === "/game" || req.url === "/") {
     console.log("Loading gamepage based on this req - " + req.url);
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end(gamepage, 'utf-8');
+    res.end(showGamepage(), 'utf-8');
   }
   else {
     fs.readFile(filePath, (err, content) => {
