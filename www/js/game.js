@@ -206,7 +206,7 @@ function showModal(score, time) {
       <h1>Congratulations!</h1>
       <p>Time: ${time}</p>
       <p>Score: ${score}</p>
-      <button onclick="this.closest('.modal-overlay').remove()">Close</button>
+      <button onclick="this.closest('.modal-overlay').remove(), location.reload();">Close</button>
     `;
 
     overlay.appendChild(modal);
