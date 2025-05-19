@@ -164,6 +164,9 @@ li {
         transform: scale(0);
         opacity: 0;
         transform-origin: center;
+
+        aspect-ratio: 2.5 / 3.5;
+        object-fit: contain;
         height: 90%;
         min-height: 70%;
         min-width: 80%;
